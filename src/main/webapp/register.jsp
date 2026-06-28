@@ -1,0 +1,116 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account — TastyBites</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/style.css">
+</head>
+<body class="bg-gray-50 flex items-center justify-center min-h-screen py-10">
+    <div class="flex w-full max-w-5xl bg-white rounded-2xl shadow-2xl overflow-hidden animate-fade-in-up">
+        
+        <!-- Left Banner -->
+        <div class="hidden md:flex flex-col justify-center w-5/12 p-12 bg-zomato-red text-white">
+            <h1 class="text-4xl font-bold mb-6">Join TastyBites</h1>
+            <p class="text-lg opacity-90 leading-relaxed mb-8">
+                Whether you're a foodie, a restaurant owner, or a delivery partner, we have something for you.
+            </p>
+            <ul class="space-y-4 opacity-90">
+                <li class="flex items-center"><span class="mr-3 text-xl">🍔</span> Order your favorite meals</li>
+                <li class="flex items-center"><span class="mr-3 text-xl">🏪</span> Grow your restaurant business</li>
+                <li class="flex items-center"><span class="mr-3 text-xl">🛵</span> Earn by delivering food</li>
+            </ul>
+        </div>
+
+        <!-- Right Registration Form -->
+        <div class="w-full md:w-7/12 p-8 md:p-12">
+            <div class="max-w-md mx-auto">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Create an account</h2>
+                <p class="text-gray-500 mb-8">Fill in the details below to get started.</p>
+
+                <% if (request.getAttribute("errorMessage") != null) { %>
+                    <div class="bg-red-50 text-red-600 p-4 rounded-lg mb-6 border border-red-100">
+                        <%= request.getAttribute("errorMessage") %>
+                    </div>
+                <% } %>
+
+                <form action="register" method="post" class="space-y-5">
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+                            <input type="text" name="username" required 
+                                class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                                placeholder="john_doe">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                            <input type="password" name="password" required 
+                                class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                                placeholder="••••••••">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" name="email" required 
+                                class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                                placeholder="john@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                            <input type="tel" name="phone" required 
+                                class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                                placeholder="+91 9876543210">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Address</label>
+                        <textarea name="address" rows="2" required 
+                            class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                            placeholder="Enter your full address"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">I am a...</label>
+                        <div class="grid grid-cols-3 gap-3">
+                            <label class="cursor-pointer">
+                                <input type="radio" name="role" value="CUSTOMER" class="peer sr-only" checked>
+                                <div class="text-center p-3 rounded-lg border border-gray-200 peer-checked:border-red-500 peer-checked:bg-red-50 peer-checked:text-red-700 hover:bg-gray-50 transition-colors">
+                                    Customer
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="role" value="RESTAURANT" class="peer sr-only">
+                                <div class="text-center p-3 rounded-lg border border-gray-200 peer-checked:border-red-500 peer-checked:bg-red-50 peer-checked:text-red-700 hover:bg-gray-50 transition-colors">
+                                    Restaurant
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="role" value="DELIVERY" class="peer sr-only">
+                                <div class="text-center p-3 rounded-lg border border-gray-200 peer-checked:border-red-500 peer-checked:bg-red-50 peer-checked:text-red-700 hover:bg-gray-50 transition-colors">
+                                    Delivery
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" 
+                        class="w-full bg-zomato-red hover-bg-zomato-red text-white font-semibold py-3 px-4 rounded-lg mt-6 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
+                        Create Account
+                    </button>
+                </form>
+
+                <p class="mt-8 text-center text-gray-600">
+                    Already have an account? 
+                    <a href="login" class="text-zomato-red font-semibold hover:underline">Sign in</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

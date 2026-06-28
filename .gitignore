@@ -1,0 +1,33 @@
+# Compiled class file
+*.class
+build/
+bin/
+
+# Eclipse
+.metadata/
+.settings/
+.recommenders/
+Servers/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Database Credentials
+src/main/java/db.properties
+db.properties
+
+# Ignore logs
+*.log
+
+# Temp files
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties

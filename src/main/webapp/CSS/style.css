@@ -1,0 +1,288 @@
+/* ============================================================
+   TastyBites - Professional Design System
+   Matching Zomato / Swiggy aesthetic — clean, modern, premium
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --red:        #e23744;
+    --red-dark:   #cb202d;
+    --red-light:  #fff0f0;
+    --orange:     #ff6b35;
+    --green:      #3d9b3d;
+    --green-light:#f0faf0;
+    --text:       #1c1c1c;
+    --text-muted: #696969;
+    --border:     #e8e8e8;
+    --bg:         #f8f8f8;
+    --white:      #ffffff;
+    --shadow-sm:  0 1px 4px rgba(0,0,0,.08);
+    --shadow:     0 2px 16px rgba(0,0,0,.08);
+    --shadow-lg:  0 8px 32px rgba(0,0,0,.14);
+    --radius:     12px;
+    --radius-sm:  8px;
+    --transition: all .2s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: var(--red); border-radius: 3px; }
+
+/* ─── Tailwind overrides / extensions ─── */
+.text-zomato-red { color: var(--red) !important; }
+.bg-zomato-red   { background-color: var(--red) !important; }
+.hover-bg-zomato-red:hover { background-color: var(--red-dark) !important; }
+.border-zomato-red { border-color: var(--red) !important; }
+.ring-zomato-red:focus { --tw-ring-color: rgba(226,55,68,.3); }
+
+/* ─── Navbar (glassmorphism sticky) ─── */
+.navbar-glass {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255,255,255,.92);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 1px 4px rgba(0,0,0,.06);
+}
+
+/* ─── Buttons ─── */
+.btn-primary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 12px 24px;
+    background: var(--red);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 14px; font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: 0 4px 14px rgba(226,55,68,.35);
+}
+.btn-primary:hover {
+    background: var(--red-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(226,55,68,.4);
+}
+
+.btn-outline {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 11px 24px;
+    background: transparent;
+    color: var(--red);
+    border: 2px solid var(--red);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 14px; font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transition);
+}
+.btn-outline:hover { background: var(--red); color: var(--white); }
+
+/* ─── Cards ─── */
+.card {
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+}
+
+/* ─── Food item image container ─── */
+.img-hover-zoom { overflow: hidden; }
+.img-hover-zoom img { transition: transform .4s ease; }
+.img-hover-zoom:hover img { transform: scale(1.08); }
+
+/* ─── Badges ─── */
+.badge {
+    display: inline-flex; align-items: center;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: .3px;
+}
+.badge-green { background: var(--green-light); color: var(--green); }
+.badge-red   { background: var(--red-light);   color: var(--red); }
+.badge-orange { background: #fff7f0; color: var(--orange); }
+.badge-blue  { background: #f0f7ff; color: #1a6fe0; }
+.badge-gray  { background: #f5f5f5; color: var(--text-muted); }
+
+/* ─── Status Badges ─── */
+.status-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px; font-weight: 700;
+}
+.status-pending        { background:#fff7ed; color:#d97706; }
+.status-confirmed      { background:#eff6ff; color:#2563eb; }
+.status-preparing      { background:#fef3c7; color:#d97706; }
+.status-out-for-delivery { background:#f0fdf4; color:#16a34a; }
+.status-delivered      { background:#f0fdf4; color:#15803d; }
+.status-cancelled      { background:#fef2f2; color:#dc2626; }
+
+/* ─── Rating pill ─── */
+.rating-pill {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: var(--green);
+    color: var(--white);
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 13px; font-weight: 800;
+}
+
+/* ─── Input fields ─── */
+.input-field {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--white);
+    transition: var(--transition);
+    outline: none;
+}
+.input-field:focus {
+    border-color: var(--red);
+    box-shadow: 0 0 0 3px rgba(226,55,68,.1);
+}
+.input-field::placeholder { color: #bbb; }
+
+/* ─── Order Tracker Steps ─── */
+.tracker-step {
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 16px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    transition: var(--transition);
+}
+.tracker-step.active {
+    border-color: var(--red);
+    background: var(--red-light);
+}
+.tracker-step.done {
+    border-color: var(--green);
+    background: var(--green-light);
+}
+.tracker-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--border);
+    flex-shrink: 0;
+}
+.tracker-step.active .tracker-dot { background: var(--red); box-shadow: 0 0 0 3px rgba(226,55,68,.25); }
+.tracker-step.done  .tracker-dot  { background: var(--green); }
+
+/* ─── Cart FAB ─── */
+.cart-fab {
+    position: fixed; bottom: 32px; right: 32px; z-index: 200;
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: var(--red);
+    color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(226,55,68,.4);
+    text-decoration: none;
+    transition: var(--transition);
+    font-size: 22px;
+}
+.cart-fab:hover { background: var(--red-dark); transform: scale(1.08); }
+.cart-fab-count {
+    position: absolute; top: -4px; right: -4px;
+    width: 22px; height: 22px;
+    background: var(--text);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 11px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid var(--white);
+}
+
+/* ─── Skeleton loading ─── */
+@keyframes shimmer {
+    0%   { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+    border-radius: var(--radius-sm);
+}
+
+/* ─── Section dividers ─── */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 0;
+}
+
+/* ─── Page Animations ─── */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounceIn {
+    0%  { transform: scale(.85); opacity: 0; }
+    60% { transform: scale(1.04); opacity: 1; }
+    100%{ transform: scale(1); }
+}
+@keyframes pulseRed {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(226,55,68,.4); }
+    50%       { box-shadow: 0 0 0 8px rgba(226,55,68,0); }
+}
+
+.animate-fade-in-up { animation: fadeInUp .5s ease-out both; }
+.animate-bounce-in  { animation: bounceIn .4s ease-out both; }
+.animate-pulse-red  { animation: pulseRed 2s infinite; }
+
+.delay-100 { animation-delay: .1s; }
+.delay-200 { animation-delay: .2s; }
+.delay-300 { animation-delay: .3s; }
+.delay-400 { animation-delay: .4s; }
+
+/* ─── Restaurant page specific ─── */
+.restaurant-hero {
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+}
+
+/* ─── Empty state ─── */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+}
+.empty-state i { font-size: 60px; color: var(--border); margin-bottom: 16px; }
+.empty-state h3 { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.empty-state p { color: var(--text-muted); font-size: 14px; }
+
+/* ─── Alert messages ─── */
+.alert {
+    padding: 14px 18px;
+    border-radius: var(--radius-sm);
+    display: flex; align-items: center; gap: 10px;
+    font-size: 14px; font-weight: 500;
+}
+.alert-error   { background: #fef2f2; border: 1px solid #fecaca; color: #dc2626; }
+.alert-success { background: #f0fdf4; border: 1px solid #bbf7d0; color: #16a34a; }
+.alert-info    { background: #eff6ff; border: 1px solid #bfdbfe; color: #2563eb; }

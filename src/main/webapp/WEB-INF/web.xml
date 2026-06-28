@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                             https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <display-name>Food Delivery Application</display-name>
+    <description>A full-stack food delivery application using Servlets, JSP, and JDBC</description>
+
+    <!-- Welcome File -->
+	<welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+    <!-- ===================== SERVLET DEFINITIONS ===================== -->
+
+    <!-- Register Servlet -->
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>com.tap.servlet.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
+    <!-- Login Servlet -->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.tap.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <!-- Logout Servlet -->
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>com.tap.servlet.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <!-- Home Servlet -->
+    <servlet>
+        <servlet-name>HomeServlet</servlet-name>
+        <servlet-class>com.tap.servlet.HomeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HomeServlet</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+
+    <!-- Menu Servlet -->
+    <servlet>
+        <servlet-name>MenuServlet</servlet-name>
+        <servlet-class>com.tap.servlet.MenuServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MenuServlet</servlet-name>
+        <url-pattern>/menu</url-pattern>
+    </servlet-mapping>
+
+    <!-- Cart Servlet -->
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <servlet-class>com.tap.servlet.CartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
+
+    <!-- Order Servlet -->
+    <servlet>
+        <servlet-name>OrderServlet</servlet-name>
+        <servlet-class>com.tap.servlet.OrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrderServlet</servlet-name>
+        <url-pattern>/order</url-pattern>
+    </servlet-mapping>
+
+    <!-- NEW SERVLETS FOR UPGRADE -->
+    <servlet>
+        <servlet-name>DashboardServlet</servlet-name>
+        <servlet-class>com.tap.servlet.DashboardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DashboardServlet</servlet-name>
+        <url-pattern>/dashboard</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RestaurantDashboardServlet</servlet-name>
+        <servlet-class>com.tap.servlet.RestaurantDashboardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RestaurantDashboardServlet</servlet-name>
+        <url-pattern>/restaurant-dashboard</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MenuManageServlet</servlet-name>
+        <servlet-class>com.tap.servlet.MenuManageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MenuManageServlet</servlet-name>
+        <url-pattern>/manage-menu</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeliveryDashboardServlet</servlet-name>
+        <servlet-class>com.tap.servlet.DeliveryDashboardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeliveryDashboardServlet</servlet-name>
+        <url-pattern>/delivery-dashboard</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateOrderStatusServlet</servlet-name>
+        <servlet-class>com.tap.servlet.UpdateOrderStatusServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateOrderStatusServlet</servlet-name>
+        <url-pattern>/update-order-status</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PaymentServlet</servlet-name>
+        <servlet-class>com.tap.servlet.PaymentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PaymentServlet</servlet-name>
+        <url-pattern>/payment</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>OrderHistoryServlet</servlet-name>
+        <servlet-class>com.tap.servlet.OrderHistoryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrderHistoryServlet</servlet-name>
+        <url-pattern>/order-history</url-pattern>
+    </servlet-mapping>
+
+    <!-- Session Configuration: 30 minutes timeout -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
+</web-app>
