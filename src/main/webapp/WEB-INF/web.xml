@@ -149,6 +149,15 @@
         <url-pattern>/order-history</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ProfileServlet</servlet-name>
+        <servlet-class>com.tap.servlet.ProfileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProfileServlet</servlet-name>
+        <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+
     <!-- Session Configuration: 30 minutes timeout -->
     <session-config>
         <session-timeout>30</session-timeout>

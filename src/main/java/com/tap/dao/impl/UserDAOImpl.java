@@ -65,13 +65,14 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public int updateUser(User user) {
-        String query = "UPDATE user SET username=?, address=?, phone=? WHERE user_id=?";
+        String query = "UPDATE user SET username=?, address=?, phone=?, password=? WHERE user_id=?";
         try (Connection con = DBConnection.getConnection();
              PreparedStatement ps = con.prepareStatement(query)) {
             ps.setString(1, user.getUsername());
             ps.setString(2, user.getAddress());
             ps.setString(3, user.getPhone());
-            ps.setInt(4, user.getUserId());
+            ps.setString(4, user.getPassword());
+            ps.setInt(5, user.getUserId());
             return ps.executeUpdate();
         } catch (Exception e) { e.printStackTrace(); }
         return 0;
