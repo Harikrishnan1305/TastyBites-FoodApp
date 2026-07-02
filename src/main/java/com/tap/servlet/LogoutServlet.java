@@ -10,7 +10,7 @@ import java.io.IOException;
 
 /**
  * Servlet to handle user logout.
- * Invalidates the current session and redirects to the login page.
+ * Invalidates the current session and redirects to the landing home page.
  */
 public class LogoutServlet extends HttpServlet {
 
@@ -22,6 +22,6 @@ public class LogoutServlet extends HttpServlet {
         if (session != null) {
             session.invalidate();
         }
-        response.sendRedirect("login");
+        response.sendRedirect("index.jsp");
     }
 }

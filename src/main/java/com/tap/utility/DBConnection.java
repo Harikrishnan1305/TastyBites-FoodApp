@@ -3,32 +3,23 @@ package com.tap.utility;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.ResourceBundle;
 
 /**
  * Utility class for opening new MySQL connections per request.
- * Reads database credentials from db.properties file to keep them secure.
+ * Uses a new connection for every call — safe for try-with-resources pattern.
  */
 public class DBConnection {
 
-    private static String URL;
-    private static String USERNAME;
-    private static String PASSWORD;
-    private static String DRIVER;
+    private static final String URL      = "jdbc:mysql://localhost:3306/food_delivery_application?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "Krishnan@2005";
+    private static final String DRIVER   = "com.mysql.cj.jdbc.Driver";
 
     static {
         try {
-            // Read from src/main/java/db.properties
-            ResourceBundle rb = ResourceBundle.getBundle("db");
-            URL = rb.getString("db.url");
-            USERNAME = rb.getString("db.username");
-            PASSWORD = rb.getString("db.password");
-            DRIVER = rb.getString("db.driver");
-            
             Class.forName(DRIVER);
-        } catch (Exception e) {
-            System.err.println("Error loading DB configuration: " + e.getMessage());
-            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            System.err.println("MySQL JDBC Driver not found: " + e.getMessage());
         }
     }
 
